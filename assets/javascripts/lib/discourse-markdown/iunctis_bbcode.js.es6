@@ -17,15 +17,22 @@ function replaceFontSize (text) {
   return text;
 }
 
+function replaceFontFace (text) {
+  while (text !== (text = text.replace(/\[font=([^\]]+)\]((?:(?!\[font=[^\]]+\]|\[\/font\])[\S\s])*)\[\/font\]/ig, function (match, p1, p2) {
+    return `<font face='${p1}'>${p2}</font>`;
+  })));
+  return text;
+}
+
 export function setup(helper) {
 
   helper.whiteList([
     'div.floatl',
     'div.floatr',
     'div.titrenews',
-    'span.su',
     'font[color=*]',
     'font[size=*]',
+    'font[face=*]',
   ]);
 
   helper.whiteList({
@@ -46,7 +53,6 @@ export function setup(helper) {
   replaceBBCode("floatl", contents => ['div', {'class': 'floatl'}].concat(contents));
   replaceBBCode("floatr", contents => ['div', {'class': 'floatr'}].concat(contents));
   replaceBBCode("t", contents => ['div', {'class': 'titrenews'}].concat(contents));
-  replaceBBCode('su', contents => ['span', { 'class': 'su' }].concat(contents));
 
   ["left", "center", "right", "justify"].forEach(direction => {
     replaceBBCode(direction, contents => ['div', {'style': "text-align:" + direction}].concat(contents));
@@ -54,4 +60,5 @@ export function setup(helper) {
 
   helper.addPreProcessor(replaceFontColor);
   helper.addPreProcessor(replaceFontSize);
+  helper.addPreProcessor(replaceFontFace);
 }

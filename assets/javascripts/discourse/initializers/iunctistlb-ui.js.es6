@@ -26,10 +26,10 @@ function priorToApi(container)
       
       onToolbarCreate(toolbar => {
         toolbar.addButton({
-          id: "surligne_ui_button",
+          id: "police_ui_button",
           group: "extras",
-          icon: "pencil-square",
-          perform: e => e.applySurround('[su]', '[/su]', 'surligne_ui_default_text')
+          icon: "font",
+          perform: e => e.applySurround('[font=]', '[/font]', 'police_ui_default_text')
         });
       });
 
@@ -114,10 +114,10 @@ function initializePlugin(api)
       
     api.onToolbarCreate(toolbar => {
         toolbar.addButton({
-          id: "surligne_ui_button",
+          id: "police_ui_button",
           group: "extras",
-          icon: "pencil-square",
-          perform: e => e.applySurround('[su]', '[/su]', 'surligne_ui_default_text')
+          icon: "font",
+          perform: e => e.applySurround('[font=]', '[/font]', 'police_ui_default_text')
         });
       });
 

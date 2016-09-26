@@ -6,9 +6,6 @@
   Discourse.BBCode.replaceBBCode("small", function(contents) { return ['span', {'style': 'font-size:x-small'}].concat(contents); });
   Discourse.Markdown.whiteListTag('span', 'style', 'font-size:x-small');
 
-  Discourse.BBCode.replaceBBCode("su", function(contents) { return ['span', {'class': 'su'}].concat(contents); });
-  Discourse.Markdown.whiteListTag('span', 'class', 'su');
-
   Discourse.BBCode.replaceBBCode("floatl", function(contents) { return ['div', {'class': 'floatl'}].concat(contents); });
   Discourse.Markdown.whiteListTag('div', 'class', 'floatl');
 

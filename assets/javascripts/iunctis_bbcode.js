@@ -46,9 +46,18 @@
     return text;
   }
 
+  function replaceFontFace (text) {
+    while (text != (text = text.replace(/\[font=([^\]]+)\]((?:(?!\[font=[^\]]+\]|\[\/font\])[\S\s])*)\[\/font\]/ig, function (match, p1, p2, offset, string) {
+      return "<font face='" + p1 + "'>" + p2 + "</font>";
+    })));
+    return text;
+  }
+
   Discourse.Dialect.addPreProcessor(replaceFontColor);
   Discourse.Dialect.addPreProcessor(replaceFontSize);
+  Discourse.Dialect.addPreProcessor(replaceFontFace);
 
   Discourse.Markdown.whiteListTag('font', 'color');
   Discourse.Markdown.whiteListTag('font', 'size');
+  Discourse.Markdown.whiteListTag('font', 'face');
 })();

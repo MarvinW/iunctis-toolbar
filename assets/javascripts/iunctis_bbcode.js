@@ -14,6 +14,9 @@
 
   Discourse.BBCode.replaceBBCode("t", function(contents) { return ['div', {'class': 'titrenews'}].concat(contents); });
   Discourse.Markdown.whiteListTag('div', 'class', 'titrenews');
+  
+  Discourse.BBCode.replaceBBCode("story", function(contents) { return ['div', {'class': 'story'}].concat(contents); });
+  Discourse.Markdown.whiteListTag('div', 'class', 'story');
 
   // [LEFT]...[/LEFT]
   // [CENTER]...[/CENTER]

@@ -30,6 +30,7 @@ export function setup(helper) {
     'div.floatl',
     'div.floatr',
     'div.titrenews',
+    'div.story',
     'font[color=*]',
     'font[size=*]',
     'font[face=*]',
@@ -53,6 +54,7 @@ export function setup(helper) {
   replaceBBCode("floatl", contents => ['div', {'class': 'floatl'}].concat(contents));
   replaceBBCode("floatr", contents => ['div', {'class': 'floatr'}].concat(contents));
   replaceBBCode("t", contents => ['div', {'class': 'titrenews'}].concat(contents));
+  replaceBBCode("t", contents => ['div', {'class': 'story'}].concat(contents));
 
   ["left", "center", "right", "justify"].forEach(direction => {
     replaceBBCode(direction, contents => ['div', {'style': "text-align:" + direction}].concat(contents));
